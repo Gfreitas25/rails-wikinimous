@@ -1,0 +1,15 @@
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="fw-bold">Wikinimous</h1>
+    <%= link_to "New Article", new_article_path, class: "btn btn-primary" %>
+  </div>
+
+  <% @article.each do |article| %>
+    <div class="mb-4 border-bottom pb-3">
+      <h2>
+        <%= link_to article.title, article_path(article), class: "text-decoration-none text-primary" %>
+      </h2>
+      <p class="text-muted"><%= truncate(article.content, length: 120) %></p>
+    </div>
+  <% end %>
+</div>

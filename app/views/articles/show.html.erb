@@ -1,0 +1,21 @@
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-start mb-3">
+    <h1 class="fw-bold"><%= @article.title %></h1>
+    <div>
+      <%= link_to edit_article_path(@article), class: "btn btn-sm btn-outline-secondary me-2" do %>
+        <i class="bi bi-pencil"></i> Edit
+      <% end %>
+      <%= link_to article_path(@article),
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                  class: "btn btn-sm btn-outline-danger" do %>
+        <i class="bi bi-trash"></i> Delete
+      <% end %>
+    </div>
+  </div>
+
+  <hr>
+
+  <p class="lead"><%= simple_format(@article.content) %></p>
+
+  <%= link_to "Back to Articles", articles_path, class: "btn btn-primary" %>
+</div>

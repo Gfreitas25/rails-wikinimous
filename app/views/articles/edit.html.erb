@@ -1,0 +1,22 @@
+
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="fw-bold">Edit Article</h1>
+    <%= link_to "Back to Articles", articles_path, class: "btn btn-primary" %>
+  </div>
+  <div class="container py-5">
+  <%= form_with model: @article, local: true, class: "needs-validation" do |form| %>
+    <div class="mb-3">
+      <%= form.label :title, class: "form-label fw-bold" %>
+      <%= form.text_field :title, class: "form-control", required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :content, class: "form-label fw-bold" %>
+      <%= form.text_area :content, class: "form-control", rows: 6 %>
+    </div>
+
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", articles_path, class: "btn btn-secondary ms-2" %><br>
+  <% end %>
+</div>
